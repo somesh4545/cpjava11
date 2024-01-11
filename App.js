@@ -74,7 +74,7 @@ const App = () => {
           </View>
         </ScrollView>
       </View>
-      {/* <View style={styles.btnContainer}>
+      <View style={styles.btnContainer}>
         <TouchableOpacity activeOpacity={0.8} style={styles.btn}>
           <Text
             style={{
@@ -85,7 +85,7 @@ const App = () => {
             Sign Out
           </Text>
         </TouchableOpacity>
-      </View> */}
+      </View>
     </View>
   );
 };
