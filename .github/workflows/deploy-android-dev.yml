@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - develop
+    tags-ignore:
+      - cp
 
 env:
   APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}

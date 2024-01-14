@@ -1,0 +1,28 @@
+name: CodePush-Android-Dev
+
+on:
+  push:
+    branches:
+      - develop
+    tags:
+      - cp
+
+env:
+  APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}
+  APP_NAME: ${{ 'someshsomani457.imp-gmail.com/cf_dev' }}
+
+jobs:
+  build:
+    name: CODEPUSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Codepush Update
+        uses: NishanthShankar/codepush-action@master
+        with:
+          args: release-react -a ${{ env.APP_NAME }}  -d Production
+        env:
+          APPCENTER_ACCESS_TOKEN: ${{ env.APP_CENTER_TOKEN }}
