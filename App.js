@@ -51,7 +51,7 @@ const App = () => {
           <Seperator />
           <View style={styles.card}>
             <View style={styles.c_head}>
-              <Text style={styles.card_title}>Help Centre</Text>
+              <Text style={styles.card_title}>Help Centerrrr</Text>
             </View>
           </View>
           <Seperator />
