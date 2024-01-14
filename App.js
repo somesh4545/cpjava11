@@ -63,7 +63,7 @@ const App = () => {
           <Seperator />
           <View style={styles.card}>
             <View style={styles.c_head}>
-              <Text style={styles.card_title}>Privacy Policy</Text>
+              <Text style={styles.card_title}>Privacy is a myth</Text>
             </View>
           </View>
           <Seperator />
@@ -74,7 +74,7 @@ const App = () => {
           </View>
         </ScrollView>
       </View>
-      {/* <View style={styles.btnContainer}>
+      <View style={styles.btnContainer}>
         <TouchableOpacity activeOpacity={0.8} style={styles.btn}>
           <Text
             style={{
@@ -85,7 +85,7 @@ const App = () => {
             Sign Out
           </Text>
         </TouchableOpacity>
-      </View> */}
+      </View>
     </View>
   );
 };
