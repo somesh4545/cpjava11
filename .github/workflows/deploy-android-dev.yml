@@ -9,7 +9,7 @@ env:
   APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}
   APP_NAME: ${{ 'Somesh/cf_dev' }}
   TESTING_GROUP: ${{ 'cf_dev' }}
-  UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/app-release.apk' }}
+  UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/release/app-release.apk' }}
 
 jobs:
   build:
@@ -31,11 +31,6 @@ jobs:
         run: cd android && chmod +x ./gradlew
       - name: Build android
         run: cd android && ./gradlew assembleRelease
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apk
-          path: android/app/build/outputs/apk/release/
       - name: Upload to app center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
