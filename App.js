@@ -63,7 +63,7 @@ const App = () => {
           <Seperator />
           <View style={styles.card}>
             <View style={styles.c_head}>
-              <Text style={styles.card_title}>Privacy in your hands</Text>
+              <Text style={styles.card_title}>Privacy in not in your hands</Text>
             </View>
           </View>
           <Seperator />
