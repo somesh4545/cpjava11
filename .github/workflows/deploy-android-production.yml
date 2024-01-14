@@ -6,9 +6,9 @@ on:
       - production
 
 env:
-  APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_STAGING }}
-  APP_NAME: ${{ 'someshsomani457.imp-gmail.com/cf_staging' }}
-  TESTING_GROUP: ${{ 'cf_dev' }}
+  APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_PRODUCTION }}
+  APP_NAME: ${{ 'someshsomani457.imp-gmail.com/cf_production' }}
+  TESTING_GROUP: ${{ 'cf_production' }}
   UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/production/release/app-production-release.apk' }}
 
 jobs:
