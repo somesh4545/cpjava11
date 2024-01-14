@@ -264,6 +264,32 @@ android {
 
         }
     }
+    flavorDimensions "default"
+
+    productFlavors {
+        production {
+            versionCode 1
+            versionName "1.0.0"
+            applicationId "com.cpjava11.prod"
+            resValue "string", "build_config_package", "com.cpjava11"
+            resValue "string", "CodePushDeploymentKey", 'a-LRJYo-E8Jzs7MU3Vk_U0rLC205ApoleUjft'
+        }
+        staging {
+            versionCode 1
+            versionName "1.0.0"
+            applicationId "com.cpjava11.staging"
+            resValue "string", "build_config_package", "com.cpjava11"
+            resValue "string", "CodePushDeploymentKey", 'BMo6yW6W-y5C9wMHCwf5lC84S5_GKgOG2qGBp'
+        }
+        dev {
+            versionCode 1
+            versionName "1.0.0"
+            applicationId "com.cpjava11.dev"
+            resValue "string", "build_config_package", "com.cpjava11"
+            resValue "string", "CodePushDeploymentKey", 'yLYL3Tdeew4_IgMxBJGiA485xxS2HPET7FTry'
+        }
+    }
+
 }
 
 dependencies {

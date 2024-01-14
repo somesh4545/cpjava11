@@ -8,7 +8,15 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "CodePush:android": "appcenter codepush release-react -a someshsomani457.imp-gmail.com/CPDemo -d Staging"
+    "android:dev": "react-native run-android --variant=devDebug --appIdSuffix=dev",
+    "android:staging": "react-native run-android --variant=stagingDebug --appIdSuffix=staging",
+    "android:production": "react-native run-android --variant=stagingDebug",
+    "build:dev": "cd android && ./gradlew assembleDevRelease",
+    "build:staging": "cd android && ./gradlew assembleStagingRelease",
+    "build:production": "cd android && ./gradlew assembleProductionRelease",
+    "CodePush:android-dev": "appcenter codepush release-react -a someshsomani457.imp-gmail.com/cf_dev -d Production",
+    "CodePush:android-staging": "appcenter codepush release-react -a someshsomani457.imp-gmail.com/cf_staging -d Production",
+    "CodePush:android-production": "appcenter codepush release-react -a someshsomani457.imp-gmail.com/cf_production -d Production"
   },
   "dependencies": {
     "appcenter": "^5.0.0",
