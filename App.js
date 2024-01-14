@@ -69,7 +69,7 @@ const App = () => {
           <Seperator />
           <View style={styles.card}>
             <View style={styles.c_head}>
-              <Text style={styles.card_title}>Customer Support</Text>
+              <Text style={styles.card_title}>Customer Support is currently down</Text>
             </View>
           </View>
         </ScrollView>
