@@ -27,10 +27,15 @@ jobs:
           
       - name: Install dependencies
         run: npm install
-        
+      - name: Gradlew permission
+        run: cd android && chmod +x ./gradlew
       - name: Build android
         run: cd android && ./gradlew assembleRelease
-        
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/
       - name: Upload to app center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
