@@ -1,15 +1,15 @@
-name: Deploy-Android-Dev
+name: Deploy-Android-Production
 
 on:
   push:
     branches:
-      - develop
+      - production
 
 env:
-  APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}
-  APP_NAME: ${{ 'someshsomani457.imp-gmail.com/cf_dev' }}
-  TESTING_GROUP: ${{ 'cf_dev' }}
-  UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/dev/release/app-dev-release.apk' }}
+  APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_PRODUCTION }}
+  APP_NAME: ${{ 'someshsomani457.imp-gmail.com/cf_production' }}
+  TESTING_GROUP: ${{ 'cf_production' }}
+  UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/production/release/app-production-release.apk' }}
 
 jobs:
   build:
@@ -46,7 +46,7 @@ jobs:
         run: cd android && chmod +x ./gradlew
 
       - name: Build android
-        run: cd android && ./gradlew assembleDevRelease
+        run: cd android && ./gradlew assembleProductionRelease
 
       - name: Upload to app center
         uses: wzieba/AppCenter-Github-Action@v1
