@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - develop
-    tags-ignore:
-      - cp
 
 env:
   APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}
@@ -14,10 +12,25 @@ env:
   UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/dev/release/app-dev-release.apk' }}
 
 jobs:
+  codepush:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'codepush')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Codepush Update
+        uses: NishanthShankar/codepush-action@master
+        with:
+          args: release-react -a ${{ env.APP_NAME }}  -d Production
+        env:
+          APPCENTER_ACCESS_TOKEN: ${{ env.APP_CENTER_TOKEN }}  
+
   build:
     name: BUILD
     runs-on: ubuntu-latest
-
+    if: github.event.head_commit.message != *'codepush'*
     steps:
       - name: Checkout
         uses: actions/checkout@v2
