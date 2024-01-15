@@ -24,7 +24,7 @@ jobs:
       - name: Codepush Update
         uses: TripleSpeeder/codepush-action@master
         with:
-          args: release-react -d Production
+          args: release-react -a  ${{env.APP_NAME}} -d Production
         env:
           APPCENTER_ACCESS_TOKEN: ${{ env.APP_CENTER_TOKEN }}  
 
