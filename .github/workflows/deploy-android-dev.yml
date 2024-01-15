@@ -11,10 +11,6 @@ env:
   TESTING_GROUP: ${{ 'cf_dev' }}
   UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/dev/release/app-dev-release.apk' }}
 
-strategy:
-  matrix:
-    node-version: [ '21.x']
-
 jobs:
   codepush:
     name: CODEPUSH
