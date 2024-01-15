@@ -40,7 +40,7 @@ const App = () => {
       <View style={styles.footer}>
         <ScrollView style={{flex: 1}}>
           <View style={styles.card}>
-            <Text style={styles.card_title}>CODEPUSH</Text>
+            <Text style={styles.card_title}>CODEPUSH 1</Text>
           </View>
           <Seperator />
           <View style={styles.card}>
@@ -51,7 +51,7 @@ const App = () => {
           <Seperator />
           <View style={styles.card}>
             <View style={styles.c_head}>
-              <Text style={styles.card_title}>Help Centerrrr</Text>
+              <Text style={styles.card_title}>Help Center</Text>
             </View>
           </View>
           <Seperator />
