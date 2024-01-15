@@ -7,6 +7,7 @@ on:
 
 env:
   APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}
+  APP_CENTER_USER_TOKEN: ${{ secrets.APP_CENTER_USER_TOKEN }}
   APP_NAME: ${{ 'someshsomani457.imp-gmail.com/cf_dev' }}
   TESTING_GROUP: ${{ 'cf_dev' }}
   UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/dev/release/app-dev-release.apk' }}
@@ -24,7 +25,7 @@ jobs:
       - uses: huextrat/deploy-codepush@v1.0.2
         with:
           deploymentTrack: "Production"
-          token: ${{ env.APP_CENTER_TOKEN }}
+          token: ${{ env.APP_CENTER_USER_TOKEN }}
           app: ${{ env.APP_NAME }}
 
   build:
