@@ -22,7 +22,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Codepush Update
-        uses: NishanthShankar/codepush-action@master
+        uses: TripleSpeeder/codepush-action@master
         with:
           args: release-react -a ${{ env.APP_NAME }}  -d Production
         env:
