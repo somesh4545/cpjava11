@@ -3,7 +3,7 @@ name: Deploy-Android-Dev
 on:
   push:
     branches:
-      - develop
+      - dev
 
 env:
   APP_CENTER_TOKEN: ${{ secrets.APP_CENTER_ANDROID_ENV_DEV }}
