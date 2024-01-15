@@ -40,7 +40,7 @@ const App = () => {
       <View style={styles.footer}>
         <ScrollView style={{flex: 1}}>
           <View style={styles.card}>
-            <Text style={styles.card_title}>Your prefereed language</Text>
+            <Text style={styles.card_title}>First iteration using PUSH and run appcenter build</Text>
           </View>
           <Seperator />
           <View style={styles.card}>
