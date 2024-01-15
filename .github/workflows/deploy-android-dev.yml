@@ -15,7 +15,7 @@ jobs:
   codepush:
     name: CODEPUSH
     runs-on: ubuntu-latest
-    condition: contains(github.event.head_commit.message, 'codepush')
+    condition: ${{ contains(github.event.head_commit.message, 'codepush') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
   build:
     name: BUILD
     runs-on: ubuntu-latest
-    condition: github.event.head_commit.message != 'codepush'
+    condition: ${{ github.event.head_commit.message != 'codepush' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
