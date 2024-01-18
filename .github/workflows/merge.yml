@@ -1,0 +1,63 @@
+name: Merge-workflow-for-testing
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+
+env:
+  APP_CENTER_TOKEN: ${{ '00e84f6c9907e16301728698207a119b11f65c32' }}
+  APP_CENTER_USER_TOKEN: ${{ 'dcef4a5c1d168e9f0b503b63af225dfb0f0e6f3b' }}
+  APP_NAME: ${{ 'someshsomani457.imp-gmail.com/codefobe_staging' }}
+  TESTING_GROUP: ${{ 'testers' }}
+  UPLOAD_FILE: ${{ 'android/app/build/outputs/apk/release/app-release.apk' }}
+
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          
+      - name: Install dependencies
+        run: npm install
+
+      - name: Cache Gradle Wrapper
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-caches-
+
+      - name: Gradlew permission
+        run: cd android && chmod +x ./gradlew
+
+      - name: Build android
+        run: cd android && ./gradlew assembleRelease
+
+      - name: Upload to app center
+        uses: wzieba/AppCenter-Github-Action@v1
+        with:
+          appName: ${{ env.APP_NAME }}
+          token: ${{ env.APP_CENTER_TOKEN }}
+          group: ${{ env.TESTING_GROUP }}
+          file: ${{ env.UPLOAD_FILE }}
+          notifyTesters: true
+          debug: false
